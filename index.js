@@ -34,12 +34,15 @@ const numberInlineKeyboard = Markup.inlineKeyboard([
   Markup.button.callback("Сгенерировать новое", "random_number"),
 ]);
 bot.hears("Случайное число", (ctx) =>
-  ctx.reply(getRandomNumber().toString(), numberInlineKeyboard)
+  ctx.reply(
+    getRandomNumber().toString()
+    // numberInlineKeyboard
+  )
 );
 bot.action("random_number", async (ctx) => {
   await ctx.editMessageText(
-    `${getRandomNumber()}\nОтредактировано: ${new Date().toISOString()}`,
-    numberInlineKeyboard
+    `${getRandomNumber()}\nОтредактировано: ${new Date().toISOString()}`
+    // numberInlineKeyboard
   );
 });
 
