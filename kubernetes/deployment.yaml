@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: bot
-          image: 1t1scool/echo-bot:latest
+          image: 1t1scool/random-bot:latest
           env:
             - name: RANDOM_BOT_TOKEN
               valueFrom:
