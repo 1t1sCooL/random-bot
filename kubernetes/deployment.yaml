@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: random-bot
+  template:
+    metadata:
+      labels:
+        app: random-bot
+    spec:
+      containers:
+        - name: bot
+          image: 1t1scool/echo-bot:latest
+          env:
+            - name: RANDOM_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: tg-random-bot-token
+                  key: RANDOM_BOT_TOKEN
